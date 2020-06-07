@@ -51,12 +51,8 @@ namespace UnitTests
         {
             // Arrange
 
-
-
             // Act
             var result = new ProductModel();
-
-
 
             // Assert
             Assert.AreEqual("Unknown", result.Email);
@@ -105,6 +101,18 @@ namespace UnitTests
 
             // Act
             var result = new ProductModel {Ratings = null};
+
+            // Assert
+            Assert.AreEqual(0, result.AverageRating());
+        }
+
+        [TestMethod]
+        public void ProductModel_Average_Rating_Of_Zero_Should_Pass()
+        {
+            // Arrange
+
+            // Act
+            var result = new ProductModel { Ratings = new int[] { 0 } };
 
             // Assert
             Assert.AreEqual(0, result.AverageRating());
